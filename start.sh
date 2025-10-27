@@ -1,7 +1,25 @@
 #!/bin/bash
 
+# Function to detect Python command
+get_python_cmd() {
+    if command -v python3 &>/dev/null; then
+        echo "python3"
+    elif command -v python &>/dev/null; then
+        echo "python"
+    else
+        echo "No Python interpreter found. Please install Python."
+        exit 1
+    fi
+}
+
+# Get the appropriate Python command
+PYTHON_CMD=$(get_python_cmd)
+
+# Get the corresponding pip command
+PIP_CMD="${PYTHON_CMD} -m pip"
+
 # Install dependencies from requirements.txt
-pip install -r requirements.txt
+$PIP_CMD install -r requirements.txt
 
 # Check if installation was successful
 if [ $? -eq 0 ]; then
@@ -12,7 +30,7 @@ else
 fi
 
 # Start the main.py script
-python main.py
+$PYTHON_CMD main.py
 
 # Check if main.py started successfully
 if [ $? -eq 0 ]; then
