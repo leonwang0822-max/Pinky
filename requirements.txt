@@ -1,0 +1,3 @@
+requests
+pytchat
+PySide6
