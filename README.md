@@ -28,7 +28,7 @@ git clone https://github.com/Pygot/Pinky.git
 2. Navigate to the Pinky folder
 3. Open a command prompt in the folder and execute the following command
 ```sh
-pip install requests pytchat pyside6
+pip install -r requirements.txt
 ```
 
 <!-- USAGE EXAMPLES -->
